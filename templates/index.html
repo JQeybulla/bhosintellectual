@@ -1,0 +1,822 @@
+{% load static %}
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>IOK</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    
+    <link rel="shortcut icon" type="image/x-icon" href="static/img/logo.png">
+
+    <script type="text/javascript">
+        var num = 0;
+    </script>
+</head>
+<body>
+    <header class="sticky-top" id="navbarx" >
+        <div class="container  ">
+            <nav  class="navbar navbar-expand-lg navbar-light bg-light   " >
+                    <a class="navbar-brand active" href="#"><img src="img/logo.png" alt="" class="logo"></a>
+
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                        <div class="navbar-nav">
+                        <a class="nav-item nav-link " href="#">Xəbərlər <span class="sr-only">(current)</span></a>
+                        <a class="nav-item nav-link" href="#staff">İdarə heyəti</a>
+                        <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                  Haqqımızda
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                  <a class="dropdown-item" href="#legends">Əfsanələr</a>
+                                  <a class="dropdown-item" href="#legendteams">Əfsanə komandalar</a>
+                                  <a class="dropdown-item" href="#aboutus">Haqqımızda</a>
+                            </div>
+                              </li>
+                        <a class="nav-item nav-link" href="#game">Mini oyun</a>
+                        <a class="nav-item nav-link" href="#contact">Əlaqə</a>
+
+                        </div>
+                    </div>
+                    </nav>
+
+        </div>
+    </header>
+
+    <main class="content">
+        <section id="news">
+            <div class="container mt-2 ">
+                    <div class="row no-guter carousel text-center tablechanges">
+                        <div class="col-lg-8 col-12 mt-3 slider"><div class="bd-example">
+                            <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
+                                <ol class="carousel-indicators">
+                                <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
+                                <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
+                                <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
+                                </ol>
+
+                                
+                                <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <img src="{{ sliders.0.image.url }}" class="d-block w-100 carouselimages" alt="...">
+                                    <div class="carousel-caption d-none d-block textedit">
+                                    <h5>{{ typings.0.first_typing}}</h5>
+                                    <p>{{ typings.0.second_typing}}</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="carousel-item">
+                                    
+                                    <img src="{{ sliders.1.image.url }}" class="d-block w-100 carouselimages" alt="...">
+                                    <div class="carousel-caption d-none d-block textedit">
+                                    <h5>{{ typings.1.first_typing}}</h5>
+                                    <p>{{ typings.1.second_typing}}</p>
+                                    </div>
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="{{ sliders.2.image.url }}" class="d-block w-100 carouselimages" alt="...">
+                                    <div class="carousel-caption d-none d-block textedit">
+                                    <h5>{{ typings.2.first_typing}} </h5>
+                                    <p>{{ typings.2.second_typing}}</p>
+                                    </div>
+                                </div>
+                                </div>
+                                <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Previous</span>
+                                </a>
+                                <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Next</span>
+                                </a>
+                            </div>
+                            </div></div>
+                        <div class="col-lg-4 col-12 table-striped text-center align-self-center   ">
+                            <table id="myTable" class="table table-dark tablex" >
+                                <thead>
+                                    <tr>
+                                            <th>Komandalar</th>
+                                            <th>Xallar</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+                                    {% for i in teams %}
+                                        <tr>
+                                            <td>{{ i.0 }}</td>
+                                            <td>{{ i.1 }}</td>
+                                        </tr>
+                                    {% endfor %}
+
+                                </tbody>
+
+
+
+                            </table>
+                          </div>
+                        </div>
+
+                    </div>
+                </div>
+
+
+        </section>
+
+
+        <section id="staff">
+            <div class="space container mt-2 mb- ">
+                    <br>
+            </div>
+            <div class="space container mt-5 mb-5">
+                    <hr>
+            </div>
+            <div class="container">
+                <div class="row no-gutters text-center mb-5 align-items-center">
+                    <div class="col-lg-12">
+                            <h1>İdarə Heyəti</h1>
+                    </div>
+
+                </div>
+                <div class="row no-gutters text-center ">
+                    <div class="col-lg-3 crew "  >
+                        <img src="{{ idare_heyeti.0.photo.url }}" alt="turan" class="rounded-circle staff" data-toggle="modal" data-target="#modalfirst" >
+                        <h5>{{ idare_heyeti.0.name}}</h5>
+                        <p class="pstaff">{{idare_heyeti.0.vezifesi}}</p>
+                        <div id="modalfirst" class="modal fade bd-example-modal-sm " tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-sm center">
+                            <div class="modal-content">
+                            <h5>Turan Eminli</h5>
+                            <p>İxtisas: Proseslərin Avtomatlaşdırılması mühəndisliyi</p>
+                            <p>Təhsil aldığı il: 2-ci kurs</p>
+                            </div>
+                        </div>
+                        </div>
+
+                    </div>
+                    <div class="col-lg-3 crew " >
+                        <img src="{{idare_heyeti.1.photo.url }}" alt="eli" class="rounded-circle staff" data-toggle="modal" data-target="#modalsecond">
+                        <h5>{{idare_heyeti.1.name}}</h5>
+                        <p class="pstaff">{{idare_heyeti.1.vezifesi}}</p>
+                        <div id="modalsecond" class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-sm center">
+                                    <div class="modal-content">
+                                    <h5>Əli Farizli</h5>
+                                    <p>İxtisası: Neft-Qaz mühəndisliyi</p>
+                                    <p>Təhsil aldığı il: 2-ci kurs</p>
+                                    </div>
+                                </div>
+                                </div>
+
+                    </div>
+                    <div class="col-lg-3 crew " >
+                        <img src="{{idare_heyeti.2.photo.url }}" alt="Mirnicat" class="rounded-circle staff" data-toggle="modal" data-target="#modalthird">
+                        <h5>{{idare_heyeti.2.name}}</h5>
+                        <p class="pstaff">{{idare_heyeti.2.vezifesi}}</p>
+                        <div id="modalthird" class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-sm center">
+                                    <div class="modal-content">
+                                    <h5>Mirnicat Cabbarlı</h5>
+                                    <p>İxtisası: Neft-Qaz mühəndisliyi</p>
+                                    <p>Təhsil aldığı il: 2-ci kurs</p>
+                                    </div>
+                                </div>
+                                </div>
+
+                    </div>
+                    <div class="col-lg-3 crew " >
+                        <img src="{{idare_heyeti.3.photo.url }}" alt="Rufet" class="rounded-circle staff" data-toggle="modal" data-target="#modalfourth">
+                        <h5>{{idare_heyeti.3.name}}</h5>
+                        <p class="pstaff">{{idare_heyeti.3.vezifesi}}</p>
+                        <div id="modalfourth" class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-sm center">
+                                    <div class="modal-content">
+                                        <h5>Rüfət Əkbərov</h5>
+                                        <p>İxtisası: Neft-Qaz mühəndisliyi</p>
+                                    <p>Təhsil aldığı il: 2-ci kurs</p>
+                                    </div>
+                                </div>
+                                </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="legends">
+        <div class="space container mt-2 mb- ">
+                <br>
+        </div>
+        <div class="space container mt-5 mb-5">
+                <hr>
+        </div>
+        <div class="container">
+            <div class="row no no-gutters row no-gutters text-center mb-5 align-items-center">
+                <div class="col-lg-12"><h1>BANM İntellektual Oyunlar Klubunda iz qoymuş sədrlər</h1></div>
+            </div>
+        </div>
+            <div class="container">
+                <div class="row no-gutters text-center">
+                    <div class="col-lg-3">
+                        <img src="{{ legend_prezs.0.photo.url }}" alt="" class="legend rounded-circle">
+                        <h5>İnsafəli Səmədov</h5>
+                    </div>
+                    <div class="col-lg-3">
+                        <img src="{{ legend_prezs.1.photo.url }}" alt="" class="legend rounded-circle" >
+                        <h5>Anar Bədəlbəyli</h5>
+                    </div>
+                    <div class="col-lg-3">
+                        <img src="{{ legend_prezs.2.photo.url }}" alt="" class="legend legend rounded-circle">
+                        <h5>Əsəd Əsədli</h5>
+                    </div>
+                    <div class="col-lg-3">
+                        <img src="{{ legend_prezs.3.photo.url }}" alt="" class="legend legend rounded-circle">
+                        <h5>Xaqan Kərimov</h5>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <section id="legendteams">
+            <div class="space container mt-2 mb- ">
+                    <br>
+            </div>
+            <div class="space container mt-5 mb-5">
+                    <hr>
+            </div>
+            <div class="container text-center">
+                <div class="row mb-5"><div class="col-lg-12"><h1>Əfsanə komandalar</h1></div></div>
+                <div class="row no-gutters inferno text-center mt-5">
+                    <div class="col-lg-6">
+
+                        <img class="teams" src="{{ legent_teams.1.image.url }}" alt="">
+                    </div>
+                    <div class="col-lg-2 col-12 mt-1 ">
+                        <div class="members">
+                            <h2>{{ legent_teams.1.team_name }}</h2>
+
+                            <p>Soldan -> Sağa</p>
+                            <strong><pre style="font-size: 18.2px;">{{  legent_teams.1.player_names }}</pre></strong>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                <div class="row no-gutters dreamteam text-center mt-5">
+                    <div class="col-lg-6 mt-1">
+                        <div class="members">
+                            <h2>{{ legent_teams.0.team_name }}</h2>
+
+                            <p>Soldan -> Sağa</p>
+                            <strong><pre style="font-size: 18.2px;">{{  legent_teams.0.player_names }}</pre></strong>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+
+                        <img class="teams" src="{{ legent_teams.0.image.url }}" alt="">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="aboutus">
+            <div class="space container mt-2 mb- ">
+                    <br>
+            </div>
+            <div class="space container mt-5 mb-5">
+                    <hr>
+            </div>
+            <div class="container">
+                <div class="row no-gutters">
+                    <div class="col-lg-12">
+                            <h1>Haqqımızda</h1>
+                    </div>
+
+                </div>
+            </div>
+            <div class="container">
+                <div class="row no-gutters text-center align-content-center mt-5">
+                    <div class="col-lg-2">
+                        <img class="trophy" src="{{ about_us.0.photo.url }}" alt="" >
+                    </div>
+                    <div class="col-lg-8  about ">
+                        <h3>{{ about_us.0.text }}</h3>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <section id="game">
+            <div class="space container mt-2 mb-5 ">
+                <br>
+            </div>
+            <div class="space container mt-5 mb-5 ">
+                    <hr>
+                </div>
+            <div class="container design">
+
+                    <div id='title'>
+                        <h1>Mini İntellektual Oyun</h1>
+                    </div>
+                        <br/>
+                        <form id="form1">
+                          <h5>1. {{ quiz.0.question }}</h5>
+                          <br>
+                            <input type="radio" name="rad1" value="{{ quiz.0.A }}"id="1">
+                            <label for="1">{{ quiz.0.A }}</label>
+                            <br>
+
+                            <input type="radio" name="rad1" value="{{ quiz.0.B }}"id="2">
+                            <label for="2">{{ quiz.0.B }}</label>
+                            <br>
+
+                            <input type="radio" name="rad1" value="{{ quiz.0.C }}"id="3">
+                            <label for="3">{{ quiz.0.C }}</label>
+                            <br>
+
+                            <input type="radio" name="rad1" value="{{ quiz.0.D}}"id="4">
+                            <label for="4">{{ quiz.0.D }}</label>
+
+                            
+                            <input type="radio" name="rad1" value="{{ quiz.0.answer}}"id="101" style="display: none;">
+                            <label for="101" style="display: none;">{{ quiz.0.answer }}</label>
+
+                          </form>
+
+                          <input type="submit" class='button' id='next1' value="Növbəti" style= "font-weight: bold;" onclick="f1()">
+
+                            <script type="text/javascript">
+                                function f1(){
+                                    document.getElementById("form1").style.display = "none";
+                                    document.getElementById("next1").style.display = "none";
+                                    document.getElementById("form2").style.display = "block";
+                                    document.getElementById("next2").style.display = "block";
+
+                                    var sual_1_A = document.getElementById("1");
+                                    var sual_1_B = document.getElementById("2");
+                                    var sual_1_C = document.getElementById("3");
+                                    var sual_1_D = document.getElementById("4");
+
+                                    var sual_1_answer = document.getElementById("101");
+
+
+                                    if ((sual_1_A.checked) && (sual_1_A.value == sual_1_answer.value)){
+                                        num++;
+                                        
+                                    }
+                                    if ((sual_1_B.checked) && (sual_1_B.value == sual_1_answer.value)){
+                                        num++;
+                                    }
+                                    if ((sual_1_C.checked) && (sual_1_C.value == sual_1_answer.value)){
+                                        num++;
+                                    }
+                                    if ((sual_1_D.checked) && (sual_1_D.value == sual_1_answer.value)){
+                                        num++;
+                        
+                                    }
+                                   
+                                }
+                            </script>
+
+                          <form id="form2" style="display: none ">
+
+                            <h5>2. {{ quiz.1.question }}</h5>
+                            <br>
+                              <input type="radio" name="rad2" value="{{ quiz.1.A }}"id="5">
+                              <label for="5">{{ quiz.1.A }}</label>
+                              <br>
+
+                              <input type="radio" name="rad2" value="{{ quiz.1.B }}"id="6">
+                              <label for="6">{{ quiz.1.B }}</label>
+                              <br>
+
+                              <input type="radio" name="rad2" value="{{ quiz.1.C }}"id="7">
+                              <label for="7">{{ quiz.1.C }}</label>
+                              <br>
+
+                              <input type="radio" name="rad2" value="{{ quiz.1.D }}"id="8">
+                              <label for="8">{{ quiz.1.D }}</label>
+
+                              <input type="radio" name="rad2" value="{{ quiz.1.answer}}"id="102" style="display: none;">
+                              <label for="102" style="display: none;">{{ quiz.1.answer }}</label>
+                            </form>
+                            
+
+                            <input type="submit" class='button' id='next2' value="Növbəti" style="display: none; font-weight: bold;" onclick="f2()">
+                                <script type="text/javascript">
+                                    function f2(){
+                                        document.getElementById("form2").style.display = "none";
+                                        document.getElementById("next2").style.display = "none";
+                                        document.getElementById("form3").style.display = "block";
+                                        document.getElementById("next3").style.display = "block";
+
+                                        var sual_2_A = document.getElementById("5");
+                                        var sual_2_B = document.getElementById("6");
+                                        var sual_2_C = document.getElementById("7");
+                                        var sual_2_D = document.getElementById("8");
+
+                                        var sual_2_answer = document.getElementById("102");
+
+
+                                        if ((sual_2_A.checked) && (sual_2_A.value == sual_2_answer.value)){
+                                            num++;
+                                        }
+                                        if ((sual_2_B.checked) && (sual_2_B.value == sual_2_answer.value)){
+                                            num++;
+                                        }
+                                        if ((sual_2_C.checked) && (sual_2_C.value == sual_2_answer.value)){
+                                            num++;
+                                        }
+                                        if ((sual_2_D.checked) && (sual_2_D.value == sual_2_answer.value)){
+                                            num++;
+                                        }
+                                        
+                                    }
+                                </script>
+
+
+                            <form id="form3" style="display: none">
+                              <h5>3. {{ quiz.2.question }}</h5>
+                              <br>
+                                <input type="radio" name="rad3" value="{{ quiz.2.A }}"id="9">
+                                <label for="9">{{ quiz.2.A }}</label>
+                                <br>
+
+                                <input type="radio" name="rad3" value="{{ quiz.2.B }}"id="10">
+                                <label for="10">{{ quiz.2.B }}</label>
+                                <br>
+
+                                <input type="radio" name="rad3" value="{{ quiz.2.C }}"id="11">
+                                <label for="11">{{ quiz.2.C }}</label>
+                                <br>
+
+                                <input type="radio" name="rad3" value="{{ quiz.2.D }}"id="12">
+                                <label for="12">{{ quiz.2.D }}</label>
+
+                                <input type="radio" name="rad3" value="{{ quiz.2.answer}}"id="103" style="display: none;">
+                                <label for="103" style="display: none;">{{ quiz.2.answer }}</label>
+                              </form>
+                              
+
+                              <input type="submit" class='button' id='next3' value="Növbəti" style="display: none; font-weight: bold;" onclick="f3()">
+                                <script type="text/javascript">
+                                    function f3(){
+                                        document.getElementById("form3").style.display = "none";
+                                        document.getElementById("next3").style.display = "none";
+                                        document.getElementById("form4").style.display = "block";
+                                        document.getElementById("next4").style.display = "block";
+
+                                        var sual_3_A = document.getElementById("9");
+                                        var sual_3_B = document.getElementById("10");
+                                        var sual_3_C = document.getElementById("11");
+                                        var sual_3_D = document.getElementById("12");
+
+                                        var sual_3_answer = document.getElementById("103");
+
+
+                                        if ((sual_3_A.checked) && (sual_3_A.value == sual_3_answer.value)){
+                                            num++;
+                                        }
+                                        if ((sual_3_B.checked) && (sual_3_B.value == sual_3_answer.value)){
+                                           num++;
+                                        }
+                                        if ((sual_3_C.checked) && (sual_3_C.value == sual_3_answer.value)){
+                                            num++;
+                                        }
+                                        if ((sual_3_D.checked) && (sual_3_D.value == sual_3_answer.value)){
+                                            num++;
+                                        }
+                                    }
+                                </script>
+                              <form id="form4" style="display: none">
+                                <h5>4. {{ quiz.3.question }}</h5>
+                                <br>
+                                  <input type="radio" name="rad4" value="{{ quiz.3.A }}"id="13">
+                                  <label for="13">{{ quiz.3.A }}</label>
+                                  <br>
+
+                                  <input type="radio" name="rad4" value="{{ quiz.3.B }}"id="14">
+                                  <label for="14">{{ quiz.3.B }}</label>
+                                  <br>
+
+                                  <input type="radio" name="rad4" value="{{ quiz.3.C }}"id="15">
+                                  <label for="15">{{ quiz.3.C }}</label>
+                                  <br>
+
+                                  <input type="radio" name="rad4" value="{{ quiz.3.D }}"id="16">
+                                  <label for="16">{{ quiz.3.D }}</label>
+
+                                  <input type="radio" name="rad4" value="{{ quiz.3.answer}}"id="104" style="display: none;">
+                                  <label for="104" style="display: none;">{{ quiz.3.answer }}</label>
+                                </form>
+                                
+
+                                <input type="submit" class='button' id='next4' value="Növbəti" style="display: none; font-weight: bold;" onclick="f4()">
+                                    <script type="text/javascript">
+                                        function f4(){
+                                            document.getElementById("form4").style.display = "none";
+                                            document.getElementById("next4").style.display = "none";
+                                            document.getElementById("form5").style.display = "block";
+                                            document.getElementById("next5").style.display = "block";
+
+                                            var sual_4_A = document.getElementById("13");
+                                            var sual_4_B = document.getElementById("14");
+                                            var sual_4_C = document.getElementById("15");
+                                            var sual_4_D = document.getElementById("16");
+
+                                            var sual_4_answer = document.getElementById("104");
+
+
+                                            if ((sual_4_A.checked) && (sual_4_A.value == sual_4_answer.value)){
+                                                num++;
+                                            }
+                                            if ((sual_4_B.checked) && (sual_4_B.value == sual_4_answer.value)){
+                                                num++;
+                                            }
+                                            if ((sual_4_C.checked) && (sual_4_C.value == sual_4_answer.value)){
+                                                num++;
+                                            }
+                                            if ((sual_4_D.checked) && (sual_4_D.value == sual_4_answer.value)){
+                                                num++;
+                                            }
+                                        }
+                                    </script>
+
+                                <form id="form5" style="display: none">
+                                  <h5>5. {{ quiz.4.question }}</h5>
+                                  <br>
+                                    <input type="radio" name="rad5" value="{{ quiz.4.A }}"id="17">
+                                    <label for="17"> {{ quiz.4.A }}</label>
+                                    <br>
+
+                                    <input type="radio" name="rad5" value="{{ quiz.4.B }}"id="18">
+                                    <label for="18"> {{ quiz.4.B }}</label>
+                                    <br>
+
+                                    <input type="radio" name="rad5" value="{{ quiz.4.C }}"id="19">
+                                    <label for="19"> {{ quiz.4.C }}</label>
+                                    <br>
+
+                                    <input type="radio" name="rad5" value="{{ quiz.4.D }}"id="20">
+                                    <label for="20"> {{ quiz.4.D }}</label>
+
+                                    <input type="radio" name="rad5" value="{{ quiz.4.answer}}"id="105" style="display: none;">
+                                    <label for="105" style="display: none;">{{ quiz.4.answer }}</label>
+                                  </form>
+                                  
+
+                                  <input type="submit" class='button' id='next5' value="Növbəti" style="display: none; font-weight: bold;" onclick="f5()">
+                                    <script type="text/javascript">
+                                        function f5(){
+                                            document.getElementById("form5").style.display = "none";
+                                            document.getElementById("next5").style.display = "none";
+                                            document.getElementById("form6").style.display = "block";
+                                            document.getElementById("next6").style.display = "block";
+
+                                            var sual_5_A = document.getElementById("17");
+                                            var sual_5_B = document.getElementById("18");
+                                            var sual_5_C = document.getElementById("19");
+                                            var sual_5_D = document.getElementById("20");
+
+                                            var sual_5_answer = document.getElementById("105");
+
+
+                                            if ((sual_5_A.checked) && (sual_5_A.value == sual_5_answer.value)){
+                                                num++;
+                                            }
+                                            if ((sual_5_B.checked) && (sual_5_B.value == sual_5_answer.value)){
+                                                num++;
+                                            }
+                                            if ((sual_5_C.checked) && (sual_5_C.value == sual_5_answer.value)){
+                                                num++;
+                                            }
+                                            if ((sual_5_D.checked) && (sual_5_D.value == sual_5_answer.value)){
+                                                num++;
+                                            }
+                                        }
+                                    </script>
+
+
+                                  <form id="form6" style="display: none">
+                                    <h5>6. {{ quiz.5.question }}</h5>
+                                    <br>
+                                      <input type="radio" name="rad6" value="{{ quiz.5.A }}"id="21">
+                                      <label for="21">{{ quiz.5.A }}</label>
+                                      <br>
+
+                                      <input type="radio" name="rad6" value="{{ quiz.5.B }}"id="22">
+                                      <label for="22">{{ quiz.5.B }}</label>
+                                      <br>
+
+                                      <input type="radio" name="rad6" value="{{ quiz.5.C }}"id="23">
+                                      <label for="23">{{ quiz.5.C }}</label>
+                                      <br>
+
+                                      <input type="radio" name="rad6" value="{{ quiz.5.D }}"id="24">
+                                      <label for="24">{{ quiz.5.D }}</label>
+
+                                      <input type="radio" name="rad6" value="{{ quiz.5.answer}}"id="106" style="display: none;">
+                                      <label for="106" style="display: none;">{{ quiz.5.answer }}</label>
+
+                                    </form>
+
+                                    
+
+                                    <input type="button" class='button' id='next6' value="Növbəti" style="display: none; font-weight: bold;" onclick="f6()">
+                                    <script type="text/javascript">
+                                        function f6(){
+                                            document.getElementById("form6").style.display = "none";
+                                            document.getElementById("next6").style.display = "none";
+                                            document.getElementById("form7").style.display = "block";
+                                            document.getElementById("next7").style.display = "block";
+
+                                            var sual_6_A = document.getElementById("21");
+                                            var sual_6_B = document.getElementById("22");
+                                            var sual_6_C = document.getElementById("23");
+                                            var sual_6_D = document.getElementById("24");
+
+                                            var sual_6_answer = document.getElementById("106");
+
+
+                                            if ((sual_6_A.checked) && (sual_6_A.value == sual_6_answer.value)){
+                                                num++;
+                                            }
+                                            if ((sual_6_B.checked) && (sual_6_B.value == sual_6_answer.value)){
+                                                num++;
+                                            }
+                                            if ((sual_6_C.checked) && (sual_6_C.value == sual_6_answer.value)){
+                                                num++;
+                                            }
+                                            if ((sual_6_D.checked) && (sual_6_D.value == sual_6_answer.value)){
+                                                num++;
+                                            }
+
+                                            
+                                          }
+
+                                    </script>
+
+                                    <form id="form7" style="display: none" >
+                                      <h5>7. {{ quiz.6.question }}</h5>
+                                      <br>
+                                        <input type="radio" name="rad7" value="{{ quiz.6.A }}" id="25">
+                                        <label for="25">{{ quiz.6.A }}</label>
+                                        <br>
+
+                                        <input type="radio" name="rad7" value="{{ quiz.6.B }}"id="26">
+                                        <label for="26">{{ quiz.6.B }}</label>
+                                        <br>
+
+                                        <input type="radio" name="rad7" value="{{ quiz.6.C }}"id="27">
+                                        <label for="27">{{ quiz.6.C }}</label>
+                                        <br>
+
+                                        <input type="radio" name="rad7" value="{{ quiz.6.D }}"id="28">
+                                        <label for="28">{{ quiz.6.D }}</label>
+
+                                        <input type="radio" name="rad7" value="{{ quiz.6.answer}}"id="107" style="display: none;">
+                                        <label for="107" style="display: none;">{{ quiz.6.answer }}</label>
+
+                                        
+                                        
+                                        
+                                    
+                                      </form>
+                                      <input type="button" class='button'value='Bitir' id="next7" onclick="f()" style="font-weight: bold; display: none;">
+                                          <script type="text/javascript">
+                                            function f(){
+                                                document.getElementById("form7").style.display = "none";
+                                                document.getElementById("next7").style.display = "none";
+                                                document.getElementById("resultPage").style.display = "block";
+
+                                                var sual_7_A = document.getElementById("25");
+                                                var sual_7_B = document.getElementById("26");
+                                                var sual_7_C = document.getElementById("27");
+                                                var sual_7_D = document.getElementById("28");
+
+                                                var sual_7_answer = document.getElementById("107");
+
+
+                                                if ((sual_7_A.checked) && (sual_7_A.value == sual_7_answer.value)){
+                                                    num++;
+                                                    
+                                                }
+                                                if ((sual_7_B.checked) && (sual_7_B.value == sual_7_answer.value)){
+                                                    num++;
+                                                }
+                                                if ((sual_7_C.checked) && (sual_7_C.value == sual_7_answer.value)){
+                                                    num++;
+                                                }
+                                                if ((sual_7_D.checked) && (sual_7_D.value == sual_7_answer.value)){
+                                                    num++;
+                                                }
+                                                document.getElementById("99").innerHTML = "Doğru cavab sayı: " + num;
+                                                var percent = (num / 7) * 100;
+                                                document.getElementById("98").innerHTML = "Faiz göstəricisi: " + Number((percent).toFixed(2)) + "%";
+                                                
+                                                
+
+                                            }
+                                          </script>
+
+
+                                                
+                                        
+                                        <div class="resultPage" id="resultPage" style="display: none;">
+                                          <h6>Ümumi sual sayi: 7</h6>
+                                          <h6 id="99"> 
+
+                                          </h6>
+                                          <h6 id="98">
+
+                                          </h6>
+                                        </div>
+
+                    <div class='button' id='prev'><a href='#'>Əvvəlki</a></div>
+                    <div class='button' id='start'> <a href='#'>Yenidən Başla</a></div>
+                    <!-- <button class='' id='next'>Next</a></button>
+                    <button class='' id='prev'>Prev</a></button>
+                    <button class='' id='start'> Start Over</a></button> -->
+                </div>
+
+
+        </section>
+
+        <section id="contact" class="">
+                <div class="space container mt-5 mb-5">
+                        <hr>
+                </div>
+
+            <div class="container">
+                <div class="row no-gutters text-center mb-5">
+                    <div class="col-lg-12">
+                        <h1>Bizi izləməyi unutmayın</h1>
+                    </div>
+                </div>
+                <div class="row no-gutters text-center">
+                    <div class="col-lg-4 col-md-4 col-4">
+                        <a href="{{ media.0.facebook }}"><i class="fab fa-facebook fa-3x iconchanges "></i></a>
+
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-4">
+                        <a href="{{ media.0.instagram }}"><i class="fab fa-instagram fa-3x iconchanges"></i></a>
+
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-4">
+                        <a href="{{ media.0.email }}"><i class="fas fa-envelope-open fa-3x iconchanges"></i></a>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="space container mt-5 mb-2">
+                <hr>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="row no-gutters justify-content-between">
+                <div class="col-lg-6 copyright"> Copyright © 2019-2020 Kanan Bagaliyev, Qeybulla Aliverdiyev</div>
+                <div class="col-lg-2 copyright"><a href="#">Əvvələ qayıt</a></div>
+            </div>
+        </div>
+    </footer>
+
+    <section id="answers" style="display: none">
+      
+      
+      <input id= "answer0"  value="{{ quiz.0.answer }}">
+      <input id= "answer1"  value="{{ quiz.1.answer }}">
+      <input id= "answer2"  value="{{ quiz.2.answer }}">
+      <input id= "answer3"  value="{{ quiz.3.answer }}">
+      <input id= "answer4"  value="{{ quiz.4.answer }}">
+      <input id= "answer5"  value="{{ quiz.5.answer }}">
+      <input id= "answer6"  value="{{ quiz.6.answer }}">
+
+    </section>
+
+
+    
+    
+    <script src="https://kit.fontawesome.com/5745faddfa.js" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="js/script.js"></script>
+    <script type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js'></script>
+    <script type="text/javascript" src='questions.json'></script>
+    <script type='text/javascript' src='js/script.js'></script>
+    <script src="https://kit.fontawesome.com/5745faddfa.js" crossorigin="anonymous"></script>
+
+</body>
+</html>
